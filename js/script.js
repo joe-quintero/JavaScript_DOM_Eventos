@@ -14,6 +14,9 @@ console.log(enlaces[0]);
 
 enlaces[0].textContent = 'Nuevo Enlace'; //modificacmos en mombre del enlace
 enlaces[0].href = 'http://www.google.com'; //modificamos la direccion del enlace
-
+enlaces[0].classList.add('nueva-clase'); //Agega una clase al enlace
+enlaces[0].classList.remove('nueva-clase'); // Eliminamos clase del enlace
 
 //getElementById
+const heading2 = document.getElementById('heading');
+console.log(heading2);

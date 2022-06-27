@@ -38,5 +38,28 @@ navegacion.appendChild(nuevoEnlace);
 
 /*Resultado : <a href="nuevo-enlace.html" class="navegacion__enlace">Un Nuevo Enlace<a>*/
 
-
 console.log(nuevoEnlace);
+
+
+// Eventos
+
+console.log('1');
+
+window.addEventListener('load', function() { //load espera que carague todos el JS, HTML y CSS y todos los archivos que dependen de estos
+	console.log('2');
+});
+
+window.onload = function() { // Igual a la linea 48, distinta sintaxis
+	console.log('3');
+}
+
+document.addEventListener('DOMContentLoaded', function() {// Solo espera que se descargue el HTML, pero no espera CSS e Imagenes
+	console.log('5')
+});
+
+console.log('4');
+
+
+window.onscroll = function() {
+	console.log('scrolling...')
+}

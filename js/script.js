@@ -43,26 +43,26 @@ console.log(nuevoEnlace);
 
 /*Eventos ---------------------------------------------------------------------------------------*/
 
-console.log('1');
+// console.log('1');
 
-window.addEventListener('load', function() { //load espera que carague todos el JS, HTML y CSS y todos los archivos que dependen de estos
-	console.log('2');
-});
+// window.addEventListener('load', function() { //load espera que carague todos el JS, HTML y CSS y todos los archivos que dependen de estos
+// 	console.log('2');
+// });
 
-window.onload = function() { // Igual a la linea 48, distinta sintaxis
-	console.log('3');
-}
+// window.onload = function() { // Igual a la linea 48, distinta sintaxis
+// 	console.log('3');
+// }
 
-document.addEventListener('DOMContentLoaded', function() {// Solo espera que se descargue el HTML, pero no espera CSS e Imagenes
-	console.log('5')
-});
+// document.addEventListener('DOMContentLoaded', function() {// Solo espera que se descargue el HTML, pero no espera CSS e Imagenes
+// 	console.log('5')
+// });
 
-console.log('4');
+// console.log('4');
 
 
-window.onscroll = function() {
-	console.log('scrolling...')
-}
+// window.onscroll = function() {
+// 	console.log('scrolling...')
+// }
 
 
 /*Seleccionar elementos y asociarles un evento--------------------------------------------------------------*/
@@ -72,5 +72,40 @@ btnEnviar.addEventListener('click', function(evento){
 	evento.preventDefault()
 
 	//Validar un formulario
-	console.log('Envianto formulario...') 
+	console.log('Envianto formulario...')
 });
+
+
+
+//Eventos de los Input y Textarea
+
+const datos = {
+	nombre: '',
+	email: '',
+	mensaje: ''
+}
+
+const nombreImput = document.querySelector('#nombre');
+const emailImput = document.querySelector('#email');
+const mensajeImput = document.querySelector('#mensaje');
+
+// nombre.addEventListener('input', function(e) { //change no evalua en tiempo real, input si.
+// 	console.log(e.target.value);
+// });
+// email.addEventListener('input', function(e) {
+// 	console.log(e.target.value);
+// });
+// mensaje.addEventListener('input', function(e) {
+// 	console.log(e.target.value);
+// }); /* Mucho Codigo Repetido */
+
+nombre.addEventListener('input', leerTexto);
+email.addEventListener('input', leerTexto);
+mensaje.addEventListener('input', leerTexto);
+
+function leerTexto(e){
+	console.log(e.target.value);
+
+
+	console.log(datos);
+}

@@ -1,4 +1,4 @@
-//Seleccionar Contenido
+/*Seleccionar Contenido------------------------------------------------------------------*/
 
 //QuerySelector //Retorna 0 o 1 elementos
 const heading = document.querySelector('.header__texto h2')
@@ -41,7 +41,7 @@ navegacion.appendChild(nuevoEnlace);
 console.log(nuevoEnlace);
 
 
-// Eventos
+/*Eventos ---------------------------------------------------------------------------------------*/
 
 console.log('1');
 
@@ -63,3 +63,14 @@ console.log('4');
 window.onscroll = function() {
 	console.log('scrolling...')
 }
+
+
+/*Seleccionar elementos y asociarles un evento--------------------------------------------------------------*/
+const btnEnviar = document.querySelector('.boton--primario');
+btnEnviar.addEventListener('click', function(evento){
+	console.log(evento)
+	evento.preventDefault()
+
+	//Validar un formulario
+	console.log('Envianto formulario...') 
+});

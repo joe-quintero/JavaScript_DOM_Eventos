@@ -72,7 +72,7 @@ btnEnviar.addEventListener('click', function(evento){
 	evento.preventDefault()
 
 	//Validar un formulario
-	console.log('Envianto formulario...')
+	console.log('Enviando formulario...')
 });
 
 
@@ -104,8 +104,8 @@ email.addEventListener('input', leerTexto);
 mensaje.addEventListener('input', leerTexto);
 
 function leerTexto(e){
-	console.log(e.target.value);
-
+	//console.log(e.target.value);
+	datos[e.target.id] = e.target.value; 
 
 	console.log(datos);
 }

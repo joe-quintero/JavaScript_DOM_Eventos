@@ -76,7 +76,7 @@ console.log(nuevoEnlace);
 // });
 
 
-//Eventos de los Input y Textarea
+//Eventos de los Input y Textarea----------------
 
 const datos = {
 	nombre: '',
@@ -87,6 +87,7 @@ const datos = {
 const nombreImput = document.querySelector('#nombre');
 const emailImput = document.querySelector('#email');
 const mensajeImput = document.querySelector('#mensaje');
+const formulario = document.querySelector('.formulario');
 
 // nombre.addEventListener('input', function(e) { //change no evalua en tiempo real, input si.
 // 	console.log(e.target.value);
@@ -102,18 +103,64 @@ nombre.addEventListener('input', leerTexto);
 email.addEventListener('input', leerTexto);
 mensaje.addEventListener('input', leerTexto);
 
+
+/*Evento de Submit--------------*/
+formulario. addEventListener('submit', function(evento){
+	evento.preventDefault();
+
+	//Validar el formulario
+
+	const {nombre, email, mensaje} = datos;
+
+	if (nombre == '' || email == '' || mensaje == ''){
+		
+		mostrarError('Todos los campos son obligatorios')
+
+		return //Corta la ejecucuin si se cumple la condicion.
+	}
+
+	//Enviar el formulario
+
+	envioCorrecto('Todos los datos fueron enviados correctamente')
+});
+
 function leerTexto(e){
 	//console.log(e.target.value);
-	datos[e.target.id] = e.target.value; 
+	datos[e.target.id] = e.target.value;
 
-	console.log(datos);
+	//console.log(datos); //Muestra los datos que pasan por e (evento)
+}
+
+//Mostrar error de envio de formulario en pantalla
+function mostrarError(mensaje){
+	const error = document.createElement('P');
+	error.textContent = mensaje;
+	error.classList.add('error');
+
+
+	formulario.appendChild(error); 
+
+	//Desaparezca despues de 5 segundos
+	setTimeout(() =>{
+		error.remove();
+	},5000);
+}
+
+//Mostrar envio de formulario correcto
+function envioCorrecto(mensaje){
+	const enviado = document.createElement('P');
+	enviado.textContent = mensaje;
+	enviado.classList.add('enviado');
+
+	formulario.appendChild(enviado);
+
+	//Desaparezca despues de 5 segundos
+	setTimeout(() =>{
+		enviado.remove();
+	},5000);
 }
 
 
-/*Evento de Submit---------------------------------------------------------------------------*/
-const formulario = document.querySelector('.formulario');
-formulario.addEventListener('submit', function(evento){
-	evento.preventDefault();
 
-	console.log('Enviando Formulario Por Favor Espere...');
-});
+
+
